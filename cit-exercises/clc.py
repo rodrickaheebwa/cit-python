@@ -1,3 +1,5 @@
+# command line calculator
+
 import sys
 
 def add(num1, num2):
@@ -13,6 +15,9 @@ def divide(num1, num2):
     print(num1/num2)
 
 def usage():
+    '''
+    How to use the command line calculator.
+    '''
     print("-----------------------------")
     print("Simple command line calculator")
     print("Performs operations of addition, subtraction, multiplication and division on TWO numbers")

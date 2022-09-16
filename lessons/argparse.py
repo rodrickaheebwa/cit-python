@@ -18,3 +18,5 @@ parser = argparse.ArgumentParser()
 parser.add_argument()
 
 args = parser.parse_args()
+
+# if you pass in, action='store_true', then you can't pass an argument after the command

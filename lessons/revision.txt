@@ -1,6 +1,1 @@
 It is important to use "if __name__ == '__main__'" in your programs.
-
-New modules used:
-sys: sys.argv
-datetime: datetime.timedelta()
-argparser

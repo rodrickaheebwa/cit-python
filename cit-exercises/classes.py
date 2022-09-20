@@ -8,7 +8,7 @@ class BankAccount:
         self.owner = owner
         self.type = type
 
-    def add_transaction(self, transaction):
+    def transact(self, transaction):
         if transaction.type == "deposit":
             self.balance += transaction.amount
         elif transaction.type == "withdraw":
@@ -44,9 +44,16 @@ class Transactions:
         self.account = account
         self.amount = amount
         self.type = type
+        self.transactions = []
 
     def __str__(self) -> str:
         return f"\nA {self.type} transaction of {self.amount} has been made on the account {self.account.account_number} in the names of {self.account.owner}\n Balance is: {self.account.balance}"
+
+    def add_transaction(self, transaction):
+        self.transactions.append(transaction)
+
+    def get_transactions(self):
+        return self.transactions
 
 # creating new bank, customer and account objects
 bank = Bank("RIKO", [])
@@ -63,7 +70,8 @@ print(bank_account)
 
 # creating a new transaction and adding it to the account
 transaction = Transactions(bank_account, 1000.0, "withdraw")
-bank_account.add_transaction(transaction)
+bank_account.transact(transaction)
+transaction.add_transaction(transaction)
 
 # new output after transaction
 print(transaction)

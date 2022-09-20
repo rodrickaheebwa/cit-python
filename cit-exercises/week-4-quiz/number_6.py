@@ -4,18 +4,14 @@
 # If the driver gets more than 12 points, the function should print: “License suspended”
 
 def speed_checker(speed):
-    demerit_points = 0
     if speed < 70:
         print("Ok")
-    else:
-        speed = speed - 70 - (speed%5)
-        while speed > 0:
-            if demerit_points > 12:
-                print("License suspended")
-                return
-            speed -= 5
-            demerit_points += 1
-        print(f"Points: {demerit_points}")
+    elif speed >= 70:
+        points = (speed - 70) // 5
+        if points > 12:
+            print("License suspended")
+        else:
+            print(f"Points: {points}")
 
 speed = int(input("Enter speed: "))
 speed_checker(speed)

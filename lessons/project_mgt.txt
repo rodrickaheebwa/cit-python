@@ -1,0 +1,63 @@
+In the world of agile and scrum, specialisation is key, you want to be the best at doing one or a few things, rather than being good at a lot of things.
+
+To stay on the CIT team, you have to be the right team member.
+- Communication, interaction and collaboration are key.
+- Produce working solutions as priority.
+
+
+SCRUM
+
+Scrum is a flexible agile development method.
+
+In scrum, features are written from the perspective of the end-user. Features are therefore known as user stories. E.g.
+As a (role), I want (feature), so that (benefit).
+The collection of all these user stories is called the product backlog. aka the wish-list of all the things that would make the product great.
+After compiling the product backlog, we plan on which specific user stories to put into a particular release of our product.
+
+Personnel:
+1. Product owner: Helps make sure the right features make it into the product backlog, representing the users and customers of the product.
+2. Scrum Master: Makes sure the project is progressing smoothly, and every team member has the tools they need to get their job done. He's the project manager.
+3. Developers.
+4. Testers.
+5. Customers.
+6. Executives.
+
+Release planning:
+The product backlog is examined to pick which features to prioritise, the release backlog.
+The team estimates the amount of work required on each feature in the release backlog.
+Estimates are made in time(hours or days); which helps in certainity of the release date.
+So now you have a release backlog with estimated amount of work.
+Then we plan on the sprints to get the work done; short duration milestones that allow teams to tackle a manageable chunk of the project and get it to a ship-ready state.
+Sprints can range from a few days to many days.
+Now we can split our release backlog into a couple of sprints; sprint backlogs.
+The goal of each sprint is to get a subset of the release backlog to a ship-ready state, so at the end of each sprint, you should have a fully tested product with all the features of the sprint 100% complete.
+Sprint backlogs are short duration milestones throughout your project.
+The progress of sprints is monitored using a burndown chart.
+
+Burndown chart:
+It provides a day-by-day measure of the amount of work that remains in a given sprint or release.
+This helps to see whether the team is on the right track or not.
+Since sprints are relatively small parts of the product, missing deadlines can indicate failure.
+
+Daily Scrum:
+It improves communication throughout the team, and ensures everything is on track.
+Team members have quick meetings where they list the work they completed since the last meeting and any obstacles.
+This daily meeting ensures that the team is always in-sync, and any major issues are dealt with.
+
+After every sprint, the team has a sprint retrospective meeting to reflect on what went right and the areas of improvement.
+
+Scrum Tools: OnTime
+
+
+
+AGILE
+
+The Agile Manifesto consists of four key values:
+
+- Individuals and interactions over processes and tools.
+    Having the right group of individuals on your software team is vital to success. The best possible tools in the wrong hands are worthless. Perhaps even more important is how these individuals communicate with each other. The interactions between team members are what helps them to collaborate and solve any problems that arise.
+- Working software over comprehensive documentation.
+- Customer collaboration over contract negotiation.
+    The focus should be on continuous development. You need to build a feedback loop with your customers so that you can constantly ensure that your product works for them. And not just a one time interaction with the customer at the point of making the contract.
+- Responding to change over following a plan.
+    Needs and requirements are always shifting, and priorities are always changing. A software team should have the ability to pivot and change direction whenever they need to.

@@ -1,1 +1,0 @@
-# to keep variables like database connection details

@@ -1,4 +1,0 @@
-Name
-Mobile Number
-Roll Number
-Email ID

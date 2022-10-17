@@ -1,0 +1,7 @@
+- Planning
+- Debugging
+- Commenting
+- Testing
+- Modules.txt (if needed)
+- Functions (where necessary), with docstrings, always
+- Data structures (appropriate)

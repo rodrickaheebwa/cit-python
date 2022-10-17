@@ -1,0 +1,33 @@
+Always include docstrings in your functions, which includes a description and an example output of the function.
+
+Functions that operate on other functions are called "higher-order functions."
+
+Python can add booleans with True as 1 and False as 0
+
+Operator precedence from lowest to highest
+:=
+lambda
+if – else
+or
+and
+not x
+in, not in, is, is not, <, <=, >, >=, !=, ==
+|
+^
+&
+<<, >>
++, -
+*, @, /, //, %
++x, -x, ~x
+**
+await x
+x[index], x[index:index], x(arguments...), x.attribute
+(expressions...), [expressions...], {key: value...}, {expressions...}
+
+By storing the data for a program in a different place than the code, you can make your programs easier for others to use and more resistant to bugs.
+
+Always use zip form to send any files you wish to send over the Internet; whether mail..
+
+When writing programs that handle files, it’s a good idea to comment out the code that does the actual copy/move/rename/delete and add a print() call instead so you can run the program and verify exactly what it will do.
+
+"Data scientists spend 80% of their time cleaning data, and 20% of their time complaining about cleaning data."

@@ -1,0 +1,12 @@
+pyperclip - interacting with clip board
+os - traversing the file system
+sys - system variables
+shelve - more complex data than just text files
+shutil - shell utilies (copy, paste, move files)
+send2trash - move files to recycle bin
+zipfile - compressing files
+traceback - traceback.format_exc()
+webbrowser - opens websites given a url
+requests - download from internet, replaced urllib2
+beautiful soup(bs4) - parsing html
+selenium - controlling the browser (e.g clicking links, filling forms)

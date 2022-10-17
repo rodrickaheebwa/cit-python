@@ -1,0 +1,79 @@
+ASSERTIONS, EXCEPTIONS, LOGGING, DEBUGGER
+
+try:
+
+except:
+
+traceback.format_exc(). This function is useful if you want the information from an exception’s traceback but also want an except statement to gracefully handle the exception.
+You can write the traceback information to a log file and keep your program running.
+
+An assertion is a sanity check to make sure your code isn’t doing something obviously wrong.
+•	The assert keyword
+•	A condition (that is, an expression that evaluates to True or False)
+•	A comma
+•	A string to display when the condition is False
+
+Assertions are for programmer errors, not user errors. For errors that can be recovered from (such as a file not being found or the user entering invalid data), raise an exception instead of detecting it with an assert statement.
+
+Assertions are for development, not the final product. By the time you hand off your program to someone else to run, it should be free of bugs and not require the sanity checks.
+
+Assertions are only for errors that the program shouldn’t try to recover from and should fail fast. Otherwise, you should raise an exception.
+
+Logging
+Don't debug with print()
+
+import logging
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+
+e.g
+
+****************************************************************************************
+
+import logging
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+
+logging.debug('Start of program')
+def factorial(n):
+ logging.debug('Start of factorial(%s%%)' % (n))
+ total = 1
+ for i in range(n + 1):
+   total *= i
+   logging.debug('i is ' + str(i) + ', total is ' + str(total))
+ logging.debug('End of factorial(%s%%)' % (n))
+ return total
+
+print(factorial(5))
+logging.debug('End of program')
+
+****************************************************************************************
+
+2015-05-23 16:20:12,664 - DEBUG - Start of program
+2015-05-23 16:20:12,664 - DEBUG - Start of factorial(5)
+2015-05-23 16:20:12,665 - DEBUG - i is 0, total is 0
+2015-05-23 16:20:12,668 - DEBUG - i is 1, total is 0
+2015-05-23 16:20:12,670 - DEBUG - i is 2, total is 0
+2015-05-23 16:20:12,673 - DEBUG - i is 3, total is 0
+2015-05-23 16:20:12,675 - DEBUG - i is 4, total is 0
+2015-05-23 16:20:12,678 - DEBUG - i is 5, total is 0
+2015-05-23 16:20:12,680 - DEBUG - End of factorial(5)
+0
+2015-05-23 16:20:12,684 - DEBUG - End of program
+
+*****************************************************************************************
+
+logging.disable(logging.CRITICAL) - to disable the logs
+Add it just below 'import logging' as it will disable all logs after it
+Unlike print() where you would need to go around deleting every print() statement
+
+logging levels:
+debug()
+info()
+warning()
+error()
+critical()
+
+logging.basicConfig(filename='myProgramLog.txt', level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - %(message)s') - storing logs to a file.
+
+IDLE's debugger
+Break points - speeds up debugger to breakpoints
+Using the debugger, you can see the state of any variable’s value at any point during the program’s lifetime.

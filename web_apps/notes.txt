@@ -1,0 +1,24 @@
+From requirements.txt
+Flask - our framework
+PyMySQL - connect to python mysql database (xampp)
+Flask-SQLAlchemy - easily working with databases in python
+flask-marshmallow
+flask-migrate
+requests
+beautifulsoup4
+
+app.py - runs our flask app and the database
+
+config.py - our flask app configurations
+
+- initiate app
+- initiate configurations
+- initiate database
+- initiate migrations
+- initiate marshmallow
+
+- import routes
+OR
+- import views blueprints and register them
+
+- update database, add and commit the session

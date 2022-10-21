@@ -65,6 +65,7 @@ def search_hacker_news():
     # /hacker-news/search?q=python
     query = request.args.get('q')
     # search in database for anythign that matches the query
+    # SELECT * FROM hacker_news WHERE title LIKE '%python%'
     data = HackerNews.query.filter(HackerNews.title.like(f'%{query}%')).all()
     return {'data': [news.serialize() for news in data]}
 

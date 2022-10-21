@@ -3,19 +3,14 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 from flask_migrate import Migrate
 from cbs_data import get_cbs_news
+from config import configs
 
 app = Flask(__name__)
 db = SQLAlchemy()
 ma = Marshmallow() 
 migrate = Migrate()
 
-class Config(object):
-    DEBUG = True
-    TESTING = False
-    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root@localhost:3306/cit_flask'
-    SECRET_KEY = 'mysecretkey'
-
-app.config.from_object(Config)
+app.config.from_object(configs())
 
 db.init_app(app)
 ma.init_app(app)

@@ -3,7 +3,7 @@
     {% block content %}
     <!-- user dashboard -->
     <div class="column is-4 is-offset-4">
-        <h3 class="title">Welcome {{ username }}</h3>
+        <h3 class="title">Welcome {{ current_user.username }}</h3>
         <div class="box">
             <form method="POST" action="{{ url_for('userviews.logout') }}">
                 <button class="button is-block is-info is-large is-fullwidth">Logout</button>

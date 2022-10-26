@@ -92,3 +92,17 @@ class User(UserMixin, db.Model, ExtraMixin):
     def get_user_by_username(cls, username):
         # select * from users where username = username
         return cls.query.filter_by(username=username).first()
+
+class Todo(db.Model, ExtraMixin):
+    __tablename__ = 'todos'
+    todo = db.Column(db.String(100), nullable=False)
+    created_by = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+
+
+    @classmethod
+    def get_all_todos(cls):
+        return cls.query.all()
+
+    @classmethod
+    def get_todos_by_user_id(cls, user_id):
+        return cls.query.filter_by(created_by=user_id).all()

@@ -1,14 +1,19 @@
 from flask import Blueprint, request, redirect, render_template, url_for, flash
 from fruits.models import User
+from flask_login import login_user, logout_user, login_required, current_user
 
 userviews = Blueprint('userviews', __name__, url_prefix='/users')
 
 @userviews.route('/')
 def index():
-    return render_template('home.html')
+    if not current_user.is_authenticated:
+        return redirect(url_for('userviews.login'))
+    return render_template('home.html', user=current_user)
 
 @userviews.route('/login', methods = ['GET', 'POST'])
 def login():
+    if current_user.is_authenticated:
+        return redirect(url_for('userviews.index'))
     if request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')
@@ -16,6 +21,7 @@ def login():
         user = User.get_user_by_username(username)
         if user and User.verify_password(password, user.password):
             flash('Login Successful')
+            login_user(user, remember=True)
             return redirect(url_for('userviews.index'))
         else:
             flash('Login failed')
@@ -24,6 +30,8 @@ def login():
 
 @userviews.route('/register', methods = ['GET', 'POST'])
 def register():
+    if current_user.is_authenticated:
+        return redirect(url_for('userviews.index'))
     if request.method == 'POST':
         email = request.form.get('email')
         username = request.form.get('username')
@@ -47,5 +55,8 @@ def register():
     return render_template('register.html')
 
 @userviews.route('/logout')
+@login_required
 def logout():
-    return "logout"
+    if request.method == 'POST':
+        logout_user()
+        return redirect(url_for('userviews.login'))

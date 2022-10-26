@@ -5,3 +5,4 @@ flask-marshmallow
 flask-migrate
 requests
 beautifulsoup4
+flask-login

@@ -1,6 +1,7 @@
 import hashlib
 from fruits import db
 from datetime import datetime
+from flask_login import UserMixin
 
 class ExtraMixin(object):
     id = db.Column(db.Integer, primary_key=True)
@@ -69,7 +70,7 @@ class CbsNews(db.Model, ExtraMixin):
         }
 
 
-class User(db.Model, ExtraMixin):
+class User(UserMixin, db.Model, ExtraMixin):
     __tablename__ = 'users'
     username = db.Column(db.String(100), nullable=False, unique = True)
     email = db.Column(db.String(100), nullable=False, unique = True)

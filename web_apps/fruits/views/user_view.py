@@ -60,3 +60,6 @@ def logout():
     if request.method == 'POST':
         logout_user()
         return redirect(url_for('userviews.login'))
+
+    logout_user()
+    return redirect(url_for('userviews.login'))

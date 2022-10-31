@@ -11,3 +11,5 @@ articles.csv
 movies.csv
 
 config.py
+
+.ipynb_checkpoints

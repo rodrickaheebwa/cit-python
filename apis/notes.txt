@@ -1,0 +1,15 @@
+API first implementation
+
+Marshmallow helps with serializing and deserializing resource representations
+
+Flask-Restful
+    Api()
+    Resource class: inherited by resource/route/endpoint classes
+    reqparse.RequestParser() access to request data and validation
+    parse_args() returns a dictionary
+
+flask-jwt-extended
+    JWTManager() to setup extension
+    create_access_token() to make JSON Web Tokens
+    jwt_required() to protect routes
+    get_jwt_identity() to get the identity of a JWT in a protected route

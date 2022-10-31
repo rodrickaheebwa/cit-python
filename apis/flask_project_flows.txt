@@ -1,0 +1,33 @@
+MIGUEL
+- package with excecution file outside
+- config outside package
+- static and template folders
+- SQLite DB, app.db outside package
+- Migrations enabled from start, migrations folder
+- Regular routes
+- flask, flask-sqlalchemy and flask-migrate
+- app connection with db, migrate, login is made at point of the latters' instantiation
+- both routes and models are imported into __init__
+- commits db sessions manually in routes; database interactions are all over the place
+- login user_loader in models
+
+IDEN
+- package with excecution file outside
+- config inside package
+- static, template and views folders
+- MariaDB-xampp
+- Migrations imported, not enabled
+- Blueprints, views folder
+- flask, flask-sqlalchemy, flask-migrate and flask-marshmallow
+- app connection is made with init_app method of the latters
+- registering blueprints in __init__ is enough
+- uses model's save method to commit db sessions; interactions with database are methods of those db models, effective use of classes
+- login user_loader in __init__, after instantiation of the login manager
+
+CINNAMON CHASERS - THE WORLD IS YOURS
+I'm back into the midnight glass
+See the light flicker
+Is it what you dreaming of
+See the sky shimmer
+I really ... want to sleep
+I [really really] need to rem... me

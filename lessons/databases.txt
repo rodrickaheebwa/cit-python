@@ -1,0 +1,111 @@
+- get data
+- create database (in script for SQLite or externally for MySQL)
+- create a connection to the database (mysql-connector, pymysql or sqlite3)
+- use cursor from connection, and the connection to populate the database
+
+INTERACTING WITH DATABASES IN PYTHON
+
+RDBMSs: Oracle, MySQL, MariaDB, SQL Server, SQLite, PostgreSQL, RDS, IBM Db2, SAP HANA Cloud, Azure SQL Database, Teradata Database, Cloud SQL...
+
+NRDBMSs: MongoDB, DynamoDB, Apache Cassandra, Redis, Couchbase, ArangoDB, Cloud Firestore, CouchDB, MarkLogic, RethinkDB, OrientDB, Azure Cosmos DB, neo4j...
+
+Many individuals and organizations developed their own Python modules acting as interface between respective databases and Python. However, each of these modules had differing nomenclature and functionality. As a result there was no portability among the database modules. If change in database is required, the database connectivity programs had to be rewritten.
+A Special Interest Group was setup for database module standardization. Its recommendations are documented in Python Enhancement Proposal for DB-API. These standards were further modified to DB-API 2.0 by another enhancement proposal (PEP-249)
+Standard Python distribution has in built support for SQLite database connectivity (sqlite3 module).
+PyMySQL and mysql-connector-python are DB_API compatible modules that are required for interacting with MySQL.
+
+SQLite doesn't require installation of a DBMS, it does not require a server to run (serverless), but it doesn't support server-side scripting.
+
+PyMySQL vs mysql-connector-python:
+- both are options for connecting to MySQL from python
+- mysql-connector-python is supported by oracle
+- PyMySQL is faster than mysql-connector-python
+
+DB-API has recommended that first of all a connection object representing the database is to be obtained.
+
+In order to establish connection with a database, the appropriate module needs to be imported and connect() function needs to be executed.
+
+import sqlite3
+connection = sqlite3.connect('db_name')
+
+pip install mysql-connector-python
+import mysql.connector
+connection = mysql.connector.connect(host='localhost', user='root', passwd='', database='db_name')
+
+pip install PyMySQL
+import pymysql.cursors
+connection = pymysql.connect(host='localhost', user='root', password='', database='db_name')
+
+def connect_to_db():
+    try:
+        conn = mysql.connector.connect(host='localhost', user='root', passwd='', database='db_name')
+    except:
+        raise mysql.connector.Error("Could not connect to database")
+
+    # initiate a cursor object
+    c = conn.cursor()
+    return conn, c
+
+Only the connection is different, the rest of the procedures are the same.
+
+The connect() function returns a connection object referring to existing database. Following methods are defined in the connection class;
+    cursor() - returns a cursor object which uses this connection.
+    commit() - commit pending transactions to the database.
+    rollback() - causes a transaction to be rolled back to the starting point.
+    close() - closes the connection to the database permanently.
+
+A cursor is a python object that enables you to work with the database. A cursor object is obtained from the connection to execute SQL queries.
+c = connection.cursor()
+
+https://www.knowledgehut.com/tutorials/python-tutorial/python-database-connectivity
+
+The connection class defines commit() and rollback() methods, employed if there are changes made to the database. Changes in database are finalised only if execute() method runs successfully by commit() method. Otherwise, any changes are undone by rollback() method.
+
+try:
+    c = connection.cursor()
+    c.execute(sql)
+    connection.commit()
+except:
+    print("error in operation")
+    connection.rollback()
+connection.close()
+
+SQLite example:
+
+import sqlite3
+db = sqlite3.connect('sqlitetest.db')
+
+def create_table(db):
+    cur = db.cursor()
+    sql = '''CREATE TABLE marks ( StudentID INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT (20) NOT NULL, age INTEGER, marks INTEGER);'''
+    cur.execute()
+    db.close()
+
+def insert_record(db):
+    sql = "INSERT INTO marks (name, age, marks) VALUES ('Kiran',20,75);"
+    try:
+        cur = db.cursor()
+        cur.execute(sql)
+        db.commit()
+        print ("one record added successfully")
+    except:
+        print ("error in operation")
+        db.rollback()
+    db.close()
+
+def retrieve_record(db):
+    sql = "SELECT * from marks;"
+    cur = db.cursor()
+    cur.execute(sql)
+
+    # one record
+    while True:
+        record = cur.fetchone()
+        if record == None:
+            break
+        print(record)
+
+    # several records
+    set = cur.fetchall()
+    for record in set:
+        print(record)
